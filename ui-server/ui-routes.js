@@ -2,6 +2,10 @@ var Message = require('../db/models/message');
 var path= require('path');
 var q = require('q');
 
+var React = require('react');
+var ReactDOMServer = require('react-dom/server')
+var indexComponent = require('./react/index');
+
 var findMessage = q.nbind(Message.findOne, Message);
 var createMessage = q.nbind(Message.create, Message);
 var findAllMessages = q.nbind(Message.find, Message);
@@ -43,6 +47,11 @@ module.exports = function(app) {
   });
 
   app.get('*', function(req, res) {
-    res.sendfile(path.join(__dirname, '../public/views', 'index.html'));
+    // converts react/index component to a react component
+    var ReactComponent = React.createElement(indexComponent, Object.assign({}, this.props, { more: 'values' }));
+    // renders the component to an html string
+    staticMarkup = ReactDOMServer.renderToString(ReactComponent);
+    // passes the html string into the view as indexComponentMarkup
+    res.render(__dirname + '/views/index', { indexComponentMarkup: staticMarkup });
   });
 };
