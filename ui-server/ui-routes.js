@@ -3,8 +3,9 @@ var path= require('path');
 var q = require('q');
 
 var React = require('react');
-var ReactDOMServer = require('react-dom/server')
-var indexComponent = require('./react/index');
+// NOTE: server-side rendering option
+// var ReactDOMServer = require('react-dom/server')
+// var indexComponent = require('./react/Index.jsx');
 
 var findMessage = q.nbind(Message.findOne, Message);
 var createMessage = q.nbind(Message.create, Message);
@@ -47,11 +48,19 @@ module.exports = function(app) {
   });
 
   app.get('*', function(req, res) {
+    res.render(path.join(__dirname, '../public/index.ejs'))
+
+
+
+
+
+    // NOTE: for server side rendering option
     // converts react/index component to a react component
-    var ReactComponent = React.createElement(indexComponent, Object.assign({}, this.props, { more: 'values' }));
+    // var ReactComponent = React.createElement(indexComponent, Object.assign({}, this.props, { more: 'values' }));
     // renders the component to an html string
-    staticMarkup = ReactDOMServer.renderToString(ReactComponent);
+    // staticMarkup = ReactDOMServer.renderToString(ReactComponent);
+
     // passes the html string into the view as indexComponentMarkup
-    res.render(__dirname + '/views/index', { indexComponentMarkup: staticMarkup });
+    // res.render(__dirname + '/views/index', { indexComponentMarkup: staticMarkup });
   });
 };
