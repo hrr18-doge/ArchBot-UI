@@ -11,6 +11,7 @@ module.exports = function(app) {
     //console.log('CAUGHT BY : ', req.params);
     findAllMessages({ user: req.params.username })
       .then(function(messages) {
+        console.log("inside findAllMessages: ", messages)
         res.json(messages);
       })
       .fail(function(err) {
