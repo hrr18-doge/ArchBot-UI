@@ -4,8 +4,6 @@ import MessageList from './MessagesList.jsx';
 import Messages from './Messages.jsx';
 import Search from './Search.jsx';
 
-
-
 // bootstrap components are imported from react-bootstrap module
 // https://react-bootstrap.github.io/components.html
 import { Jumbotron } from 'react-bootstrap';
@@ -16,7 +14,11 @@ import { Jumbotron } from 'react-bootstrap';
 const jumbotronInstance = (
   <Jumbotron>
     <span>
-    <h1 className="row text-center jumbo"><img src="/images/fancyDoge.png"/>Such Dashboard Wow<img src="/images/fancyDoge.png"/></h1>
+      <h1 className="row text-center jumbo">
+        <img src="/images/fancyDoge.png"/>
+        Such Dashboard Wow
+        <img src="/images/fancyDoge.png"/>
+      </h1>
     </span>
   </Jumbotron>
 )
@@ -32,36 +34,6 @@ class App extends React.Component {
 
   }
 
-    // this.dummyData = [
-    //   {type:'message',
-    //     key: 1,
-    //     channel: 'C43214FDSA',
-    //     user: 'UASDF@4325FD',
-    //     ts: '1473222394.000016',
-    //     team: 'T27FSAC90',
-    //     text: 'this is message1',
-    //     username: 'brogrammer'
-    //   },
-    //   {type:'message',
-    //     key: 2,
-    //     channel: 'C43214FDSA',
-    //     user: 'UASDF@4325FD',
-    //     ts: '1473222394.000016',
-    //     team: 'T27FSAC90',
-    //     text: 'this is message2',
-    //     username: 'brogrammer'
-    //   },
-    //   {type:'message',
-    //     key: 3,
-    //     channel: 'C43214FDSA',
-    //     user: 'UASDF@4325FD',
-    //     ts: '1473222394.000016',
-    //     team: 'T27FSAC90',
-    //     text: 'this is message3',
-    //     username: 'brogrammer'
-    //   }
-    // ];
-
   filterFunction() {
     if (this.state.data.length > this.state.unfilteredData.length) {
       this.state.unfilteredData = this.state.data.slice(0)
@@ -69,39 +41,39 @@ class App extends React.Component {
     this.setState({ data: this.state.unfilteredData })
     var input = document.getElementById('input').value;
     var filtered = [];
-    this.state.unfilteredData.forEach(function(el){
+    this.state.unfilteredData.forEach(function(el) {
       if (el.text.includes(input)) {
         filtered.push(el)
       }
     })
-    this.setState({data: filtered})
+    this.setState({ data: filtered })
   }
 
   refreshFunction() {
     var self = this;
     fetch("/api/messages/", { method: "GET" })
-    .then((response) =>  response.json())
-    .then((data) => {
-      console.log(data);
-      self.setState({data: data});
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+      .then((response) =>  response.json())
+      .then((data) => {
+        console.log(data);
+        self.setState({ data: data });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   componentDidMount() {
-    ReactDOM.render(<Search filterFunc={this.filterFunction.bind(this)}/>, document.getElementById('form'))
+    ReactDOM.render(<Search filterFunc={ this.filterFunction.bind(this) }/>, document.getElementById('form'))
     var self = this;
     fetch("/api/messages/", { method: "GET" })
-    .then((response) =>  response.json())
-    .then((data) => {
-      console.log(data);
-      self.setState({data: data});
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+      .then((response) =>  response.json())
+      .then((data) => {
+        console.log(data);
+        self.setState({ data: data });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   // The bootstrap component instance can be added via handlebars inside of the render return
@@ -109,9 +81,9 @@ class App extends React.Component {
     if (this.state.data){
       return (
         <div>
-          {jumbotronInstance}
+          { jumbotronInstance }
           <h1>&nbsp;&nbsp;Messages</h1>
-          <MessageList data = {this.state.data} refreshFunction = {this.refreshFunction.bind(this)}/>
+          <MessageList data = { this.state.data } refreshFunction = { this.refreshFunction.bind(this) }/>
         </div>
       );
     }
