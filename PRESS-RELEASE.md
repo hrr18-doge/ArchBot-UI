@@ -29,16 +29,16 @@ Once the project moves into development, the press release can be used as a touc
   > Slack's free channel accounts will only save the 10,000 most recent messages and actively purges valuable older conversations.
 
 ## Solution ##
-  > After being invited to your Slack channel, DogeBot quietly saves and stores your messages in an easily accessible and searchable website for your convenience.
+  > After being invited to your Slack channel, DogeBot quietly saves and stores your messages in an easily accessible and searchable website for your convenience. The website requires a login and password that is provided from Dogebot via a custom Slack command.
 
 ## Quote from You ##
   > "Don't Be A Dick" - Patrik K., Scrum Master
 
 ## How to Get Started ##
-  > Download our DogeBot and client/server repositories and push each to its own Heroku account (or use ours!). Invite DogeBot to a Slack channel and watch as messages are stored effortlessly in the client app. Built with MR NEWB -- MongoDB, React, Node, Express, Webpack and Bootstrap.
+  > Download our DogeBot and client/server repositories and push each to its own Heroku account (or use ours!). Invite DogeBot to a Slack channel and watch as messages are stored effortlessly in the client app. Tell Dogebot "Dogebot give me a password!" to access your message archieve on the client. Built with MR NEWB -- MongoDB, React, Node, Express, Webpack and Bootstrap.
 
 ## Customer Quote ##
   > "Finally, I can settle arguments fair and square whenever someone misquotes me." - Michael Jordan, former professional baseball player.
 
 ## Closing and Call to Action ##
-  > We recommend adding authentication using OAuth (which Slack supports) and adding data visualization for all of your newly stored messages. Other possibilities include adding custom Slack commands to your Bot so it retrieves messages from you and prints them in your Slack channel.
+  > We recommend adding Redux and client-side routing, as well as data visualization for all of your newly stored messages. Other possibilities include adding custom Slack commands to your Bot so it retrieves messages from you and prints them in your Slack channel. The front end needs styling as well.
