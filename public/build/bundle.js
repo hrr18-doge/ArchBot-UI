@@ -21532,40 +21532,72 @@
 	        // user has not logged in yet
 	        return _react2.default.createElement(
 	          'div',
-	          { className: 'login panel col-sm-4 col-sm-offset-4' },
+	          null,
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'panel-heading' },
+	            { className: 'jumbotron' },
 	            _react2.default.createElement(
-	              'h3',
-	              null,
-	              'Login'
+	              'div',
+	              { className: 'container' },
+	              _react2.default.createElement(
+	                'h1',
+	                null,
+	                'Welcome to ArchBot'
+	              ),
+	              _react2.default.createElement(
+	                'h2',
+	                null,
+	                'A simple UI for slackbots'
+	              )
 	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'panel-body' },
+	            { className: 'login panel col-sm-4 col-sm-offset-4' },
 	            _react2.default.createElement(
-	              'label',
-	              null,
-	              'Team Code: '
+	              'div',
+	              { className: 'panel-heading' },
+	              _react2.default.createElement(
+	                'h3',
+	                null,
+	                'Login'
+	              )
 	            ),
-	            _react2.default.createElement('input', { onChange: this.teamcodeHandler.bind(this), placeholder: 'Enter Team Code' })
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'panel-body' },
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                'Team Code: '
+	              ),
+	              _react2.default.createElement('input', { onChange: this.teamcodeHandler.bind(this), placeholder: 'Enter Team Code' })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'panel-body' },
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                'Password: '
+	              ),
+	              _react2.default.createElement('input', { onChange: this.passwordHandler.bind(this), placeholder: 'Enter Password' }),
+	              _react2.default.createElement(
+	                'button',
+	                { onClick: this.loginHandler.bind(this) },
+	                'Login'
+	              )
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'panel-body' },
+	            { className: 'container', style: style.demo },
 	            _react2.default.createElement(
-	              'label',
+	              'p',
 	              null,
-	              'Password: '
+	              'Typically you should be setting up your slackbot to provide you with your team code and password, but for now try this test login for size.'
 	            ),
-	            _react2.default.createElement('input', { onChange: this.passwordHandler.bind(this), placeholder: 'Enter Password' }),
-	            _react2.default.createElement(
-	              'button',
-	              { onClick: this.loginHandler.bind(this) },
-	              'Login'
-	            )
+	            _react2.default.createElement('img', { src: '/resources/demo.png' })
 	          )
 	        );
 	      }
@@ -21574,6 +21606,13 @@
 
 	  return Login;
 	}(_react2.default.Component);
+
+	var style = {
+	  demo: {
+	    display: 'inline-block',
+	    opacity: 0.7
+	  }
+	};
 
 	module.exports = Login;
 
