@@ -57,20 +57,44 @@ class Login extends React.Component {
     } else {
       // user has not logged in yet
       return (
-        <div className="login panel col-sm-4 col-sm-offset-4">
-          <div className="panel-heading"><h3>Login</h3></div>
-          <div className="panel-body">
-            <label>Team Code: </label>
-            <input onChange={this.teamcodeHandler.bind(this)} placeholder="Enter Team Code"/>
+        <div>
+          <div className="jumbotron">
+            <div className="container">
+              <h1>Welcome to ArchBot</h1>
+              <h2>A simple UI for slackbots</h2>
+            </div>
           </div>
-          <div className="panel-body">
-            <label>Password: </label>
-            <input onChange={this.passwordHandler.bind(this)} placeholder="Enter Password"/>
-            <button onClick={this.loginHandler.bind(this)}>Login</button>
+          <div className="login panel col-sm-4 col-sm-offset-4">
+            <div className="panel-heading">
+              <h3>Login</h3>
+            </div>
+            <div className="panel-body">
+              <label>Team Code: </label>
+              <input onChange={this.teamcodeHandler.bind(this)} placeholder="Enter Team Code"/>
+            </div>
+            <div className="panel-body">
+              <label>Password: </label>
+              <input onChange={this.passwordHandler.bind(this)} placeholder="Enter Password"/>
+              <button onClick={this.loginHandler.bind(this)}>Login</button>
+            </div>
+          </div>
+          <div className="container" style={style.demo}>
+            <p>
+              Typically you should be setting up your slackbot to provide you with your
+              team code and password, but for now try this test login for size.
+            </p>
+            <img src="/resources/demo.png"/>
           </div>
         </div>
       )
     }
+  }
+}
+
+var style = {
+  demo: {
+    display: 'inline-block',
+    opacity: 0.7
   }
 }
 
